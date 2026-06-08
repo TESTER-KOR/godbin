@@ -1,0 +1,5 @@
+notion_token.txt
+.env
+trades.json
+__pycache__/
+*.pyc
