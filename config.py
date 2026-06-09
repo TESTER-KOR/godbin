@@ -1,12 +1,26 @@
-EMA_PERIOD = 200
-TREND_TIMEFRAMES = ['4h', '1h']
-ENTRY_TIMEFRAME = '15m'
-TOP_N = 10
-
-RISK_REWARD = 1.3
-MIN_BODY_RATIO = 0.3   # 몸통/전체범위 최솟값 (decent body 기준)
-MIN_WICK_RATIO = 0.25  # 꼬리/몸통 최솟값 (반전 꼬리 기준)
-
-INITIAL_CAPITAL = 10000   # 가상 초기 자본 (USDT)
-TRADE_SIZE_USDT = 200     # 거래당 가상 포지션 크기 (USDT)
-STATE_FILE = 'trades.json'
+# §11 전략 파라미터 — 모든 수치는 여기서만 관리
+EMA_LEN            = 200
+ADX_LEN            = 14
+ADX_MIN            = 20
+AVG_BODY_N         = 20
+ATR_LEN            = 14
+IMPULSE_BODY_MULT  = 1.5    # 장대봉 몸통 배수
+WICK_RANGE_MIN     = 0.33   # 되돌림 꼬리 / 전체 길이
+WICK_BODY_MIN      = 1.0    # 되돌림 꼬리 / 몸통
+DOJI_RATIO         = 0.10   # 도지 판정
+CONFIRM_BODY_MULT  = 0.5    # 직전봉 충분한 크기 기준 (SL 폴백 결정)
+RR_RATIO           = 1.3
+EXIT_MODE          = 'HYBRID'   # HYBRID | RR_ONLY | CANDLE_ONLY
+PROFIT_HOLD_PCT    = 0.10       # 10%: 봉마감 청산 예외 (불타기 보유)
+SIZING_MODE        = 'RISK_PCT'
+RISK_PER_TRADE     = 0.01       # 자본의 1%
+LEVERAGE_CAP       = 10
+TOP_N              = 10
+MAX_POSITIONS      = 1
+MAX_DAILY_LOSS_PCT = 0.05       # 5%
+N_CONSEC_SL        = 3
+COOLDOWN_LONG_SEC  = 3600       # 1시간
+COOLDOWN_BARS      = 1
+INITIAL_CAPITAL    = 10000      # USDT
+STATE_FILE         = 'trades.json'
+BTC_SYMBOL         = 'BTC/USDT:USDT'
