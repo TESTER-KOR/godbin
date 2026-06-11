@@ -4,7 +4,7 @@ from config import TOP_N
 
 
 def get_exchange():
-    return ccxt.bybit({'options': {'defaultType': 'linear'}})
+    return ccxt.okx({'options': {'defaultType': 'swap'}})
 
 
 def get_top_symbols(exchange, n=TOP_N):
