@@ -4,7 +4,7 @@ from config import TOP_N
 
 
 def get_exchange():
-    return ccxt.binance({'options': {'defaultType': 'future'}})
+    return ccxt.bybit({'options': {'defaultType': 'linear'}})
 
 
 def get_top_symbols(exchange, n=TOP_N):
