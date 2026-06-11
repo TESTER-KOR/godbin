@@ -119,9 +119,9 @@ class PaperTrader:
               f"@ {entry:.4f}  SL:{sl:.4f}  TP:{tp:.4f} "
               f"| R={R:.4f}  {size_usdt:.0f}USDT x{lev:.0f}")
 
-    def update_open_trades(self, exchange):
+    def update_open_trades(self, exchange) -> int:
         if not self.open_trades:
-            return
+            return 0
 
         to_close  = []
         to_update = []
@@ -230,6 +230,7 @@ class PaperTrader:
 
         self.open_trades = [t for t in self.open_trades if t not in to_close]
         self._save()
+        return len(to_close)
 
     def print_summary(self):
         total     = len(self.closed_trades)

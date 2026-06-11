@@ -10,9 +10,15 @@ exchange = get_exchange()
 trader   = PaperTrader()
 
 # 1. 오픈 포지션 청산 체크
+closed_count = 0
 if trader.open_trades:
     print("▶ 포지션 업데이트")
-    trader.update_open_trades(exchange)
+    closed_count = trader.update_open_trades(exchange)
+
+if closed_count > 0:
+    print("  청산 발생 — 이번 봉 신규 진입 스킵")
+    trader.print_summary()
+    sys.exit(0)
 
 # 2. 안전장치 확인
 if not trader.is_trading_allowed():
